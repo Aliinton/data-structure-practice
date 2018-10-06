@@ -26,46 +26,12 @@ BiTree BTSearch(BiTree T, int k)
 BiTree CreateBSTree(int *a, int l)
 {
     int i;
-    BiTree T, N, p;
-    T = NULL;
-    if(l)
+    for(i = 0; i < l; i++)
     {
-        T = (BiTree)malloc(sizeof(BiTNode));
-        T->data = a[0];
-        T->lchild = T->rchild = NULL;
+        BiTree
     }
-    for(i = 1; i < l; i++)
-    {
-        p = T;
-        N = (BiTree) malloc (sizeof(BiTNode));
-        N->data = a[i];
-        N->lchild = N->rchild = NULL;
-        while(p)
-        {
-            if(p->data > a[i])
-            {
-                if(!p->lchild)
-                {
-                    p->lchild = N;
-                    break;
-                }
-                else
-                    p = p->lchild;
-            }
-            else
-            {
-                if(!p->rchild)
-                {
-                    p->rchild = N;
-                    break;
-                }
-                else
-                    p = p->rchild;
-            }
-        }
-    }
-    return T;
 }
+
 void InOrderTraverse(BiTree T)
 {
     if(T)

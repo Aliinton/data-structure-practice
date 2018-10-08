@@ -23,15 +23,6 @@ BiTree BTSearch(BiTree T, int k)
     return N;
 }
 
-BiTree CreateBSTree(int *a, int l)
-{
-    int i;
-    for(i = 0; i < l; i++)
-    {
-        BiTree
-    }
-}
-
 void InOrderTraverse(BiTree T)
 {
     if(T)
@@ -177,29 +168,47 @@ BiTree BSTreeAdd(BiTree T, int k)
     n = (BiTree) malloc(sizeof(BiTNode));
     n->data = k;
     n->lchild = n->rchild = NULL;
-    while(p)
+    if(p)
     {
-        if(p->data > k)
+        while(p)
         {
-            if(p->lchild)
-                p = p->lchild;
-            else
+            if(p->data > k)
             {
-                p->lchild = n;
-                return T;
+                if(p->lchild)
+                    p = p->lchild;
+                else
+                {
+                    p->lchild = n;
+                    return T;
+                }
             }
-        }
-        else
-        {
-            if(p->rchild)
-                p = p->rchild;
             else
             {
-                p->rchild = n;
-                return T;
+                if(p->rchild)
+                    p = p->rchild;
+                else
+                {
+                    p->rchild = n;
+                    return T;
+                }
             }
         }
     }
+    else
+    {
+        return n;
+    }
+}
+
+BiTree CreateBSTree(int *a, int l)
+{
+    int i;
+    BiTree T = NULL;
+    for(i = 0; i < l; i++)
+    {
+        T = BSTreeAdd(T, a[i]);
+    }
+    return T;
 }
 
 int main()

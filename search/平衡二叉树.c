@@ -101,7 +101,7 @@ AVLTree AVLTree_Delete(AVLTree T, int x)
 {
     AVLTree stack[100], N = T, NP, S, SP;
     int top = 0;
-//Ѱ�Ҵ�ɾ��Ԫ�أ���������·��ѹջ
+//寻找待删除元素，并把搜索路径压栈
     while(N->data != x)
     {
         if(N->data > x)
@@ -116,7 +116,7 @@ AVLTree AVLTree_Delete(AVLTree T, int x)
         }
     }
     NP = stack[top - 1];
-//ִ��ɾ������
+//执行删除操作
     if(N->lchild)
     {
         if(N->rchild)
@@ -160,7 +160,7 @@ AVLTree AVLTree_Delete(AVLTree T, int x)
                 NP->rchild =NULL;
         }
     }
-//���ݴ��������ڵ㣬����ƽ�⻯����ֱ��ջΪ��
+//回溯处理到根节点，进行平衡化处理直到栈为空
     while(top)
     {
         S = stack[--top];

@@ -26,5 +26,3 @@ void main()
     }
     DestroyStack (&S);
 }
-//pinaccesscode
-//sexhotgames
